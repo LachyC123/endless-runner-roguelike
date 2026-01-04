@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#1a1a2e">
+    <title>Shadow Runner - Endless Roguelike</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏃</text></svg>">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen">
+            <div class="title-container">
+                <h1>SHADOW<br>RUNNER</h1>
+                <p class="subtitle">Endless Roguelike</p>
+            </div>
+            <div class="stats-display">
+                <div class="stat">
+                    <span class="stat-label">High Score</span>
+                    <span id="high-score" class="stat-value">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Total Coins</span>
+                    <span id="total-coins" class="stat-value">0</span>
+                </div>
+            </div>
+            <button id="start-btn" class="game-btn pulse">TAP TO RUN</button>
+            <div class="controls-hint">
+                <div class="hint">👆 Tap to Jump</div>
+                <div class="hint">👇 Swipe Down to Slide</div>
+                <div class="hint">👈👉 Swipe to Switch Lanes</div>
+            </div>
+        </div>
+
+        <!-- Upgrade Screen -->
+        <div id="upgrade-screen" class="screen hidden">
+            <h2>POWER UPS</h2>
+            <p class="coins-display">💰 <span id="upgrade-coins">0</span></p>
+            <div id="upgrades-container"></div>
+            <button id="continue-btn" class="game-btn">CONTINUE RUN</button>
+        </div>
+
+        <!-- Game Canvas -->
+        <canvas id="game-canvas"></canvas>
+
+        <!-- Game HUD -->
+        <div id="hud" class="hidden">
+            <div class="hud-left">
+                <div class="hud-item">
+                    <span class="hud-icon">🏃</span>
+                    <span id="distance">0m</span>
+                </div>
+            </div>
+            <div class="hud-center">
+                <span id="multiplier" class="hidden">x2</span>
+            </div>
+            <div class="hud-right">
+                <div class="hud-item">
+                    <span class="hud-icon">💰</span>
+                    <span id="coins">0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pause Button -->
+        <button id="pause-btn" class="hidden">⏸</button>
+
+        <!-- Game Over Screen -->
+        <div id="gameover-screen" class="screen hidden">
+            <h2>GAME OVER</h2>
+            <div class="final-stats">
+                <div class="final-stat">
+                    <span class="final-label">Distance</span>
+                    <span id="final-distance" class="final-value">0m</span>
+                </div>
+                <div class="final-stat">
+                    <span class="final-label">Coins</span>
+                    <span id="final-coins" class="final-value">0</span>
+                </div>
+                <div class="final-stat">
+                    <span class="final-label">Score</span>
+                    <span id="final-score" class="final-value">0</span>
+                </div>
+            </div>
+            <div id="new-record" class="hidden">🏆 NEW RECORD! 🏆</div>
+            <button id="retry-btn" class="game-btn">RUN AGAIN</button>
+            <button id="upgrade-btn" class="game-btn secondary">UPGRADES</button>
+        </div>
+
+        <!-- Pause Screen -->
+        <div id="pause-screen" class="screen hidden">
+            <h2>PAUSED</h2>
+            <button id="resume-btn" class="game-btn">RESUME</button>
+            <button id="quit-btn" class="game-btn secondary">QUIT RUN</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
